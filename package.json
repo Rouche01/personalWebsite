@@ -1,0 +1,28 @@
+{
+  "name": "personalWebsite",
+  "version": "1.0.0",
+  "description": "Building my own website with HTML, CSS and Javascript as a Single Page Application",
+  "main": "server.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rouche01/personalWebsite.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rouche01/personalWebsite/issues"
+  },
+  "homepage": "https://github.com/Rouche01/personalWebsite#readme",
+  "dependencies": {
+    "jquery": "^3.4.1",
+    "vanilla-router": "^1.2.7"
+  }
+}
