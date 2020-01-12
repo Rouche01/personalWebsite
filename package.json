@@ -22,7 +22,13 @@
   },
   "homepage": "https://github.com/Rouche01/personalWebsite#readme",
   "dependencies": {
+    "axios": "^0.19.1",
+    "bootstrap": "^4.4.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "handlebars": "^4.7.1",
     "jquery": "^3.4.1",
+    "popper.js": "^1.16.0",
     "vanilla-router": "^1.2.7"
   }
 }
