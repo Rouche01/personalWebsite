@@ -1,0 +1,45 @@
+.navbar {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+#hero {
+    height: 85vh;
+    background-image: url(./img/placeholder-boy.jpg);
+    background-repeat: none;
+    background-size: cover;
+}
+p.display-4 {
+    font-size: 35px;
+}
+
+#myintro p {
+    font-size: 18px;
+}
+
+#myintro a {
+    font-size: 16px;
+    text-decoration: none;
+}
+
+#myintro a i {
+    font-size: 14px;
+}
+
+hr {
+    background-color: #fff;
+    opacity: 0.3;
+}
+
+.copyright {
+    margin-top: -10px;
+}
+
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
+      #hero {
+          background-position: right -180px bottom 0px;
+      }
+}
