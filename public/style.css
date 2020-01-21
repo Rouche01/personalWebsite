@@ -40,7 +40,7 @@ hr {
     opacity: 0.3;
 }
 
-.intro hr, #email-sign-up-about hr, #footer-about-me hr {
+.intro hr, #email-sign-up-about hr, #footer-about-me hr, hr.blog-divider {
     background-color: #000;
     opacity: 0.3;
 }
@@ -51,6 +51,93 @@ hr {
 
 .intro p, .work-philosophy p, .personal-quirks p {
     font-size: 18px;
+}
+
+#blogHero input {
+    border-radius: 26px;
+}
+
+.blog-title a {
+    text-decoration: none;
+    color: #000;
+}
+
+.blog-link {
+    color: #d3a006;
+}
+
+.blog-link:hover {
+    color: #d3a006;
+}
+
+#loader {
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+}
+
+#loader hr {
+    border: 0;
+    margin: 0;
+    width: 40%;
+    height: 40%;
+    position: absolute;
+    border-radius: 50%;
+    animation: spin 2s ease infinite;
+    -webkit-animation: spin 2s ease infinite;
+}
+
+#loader :first-child {
+    background: #d3a006;
+    animation-delay: -1.5s;
+}
+
+#loader :nth-child(2) {
+    background: #193B48;
+    animation-delay: -1s;
+}
+
+#loader :nth-child(3) {
+    background: #FDA543;
+    animation-delay: -0.5s;
+}
+
+#loader :last-child {
+    background: rgb(44, 133, 168);
+}
+
+@keyframes spin {
+    0%,100% {
+        transform: translate(0);
+    }
+    25% {
+        transform: translate(160%);
+    }
+    50% {
+        transform: translate(160%, 160%);
+    }
+    75% {
+        transform: translate(0, 160%);
+    }
+}
+
+@-webkit-keyframes spin {
+    0%,100% {
+        transform: translate(0);
+    }
+    25% {
+        transform: translate(160%);
+    }
+    50% {
+        transform: translate(160%, 160%);
+    }
+    75% {
+        transform: translate(0, 160%);
+    }
 }
 
 @media only screen 

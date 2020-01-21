@@ -4,9 +4,23 @@ window.addEventListener('load', () => {
     //compile Handlebar Templates 
     const homeTemplate = Handlebars.compile($('#home-template').html());
     const aboutTemplate = Handlebars.compile($('#about-template').html());
+    const blogTemplate = Handlebars.compile($('#blog-template').html());
+    const loadTemplate = Handlebars.compile($('#load-template').html());
 
     //const html = aboutTemplate();
     //el.html(html);
+
+    // Instantiate api handler
+    const api = axios.create({
+        baseURL: 'http://localhost:3000/api',
+        timeout: 7000,
+    });
+
+    const showError = (error) => {
+        const { title, message } = error.response.data;
+        const html = errorTemplate({ color: 'red', title, message});
+        el.html(html);
+    }
 
     const router = new Router({
         mode: 'history',
@@ -30,7 +44,15 @@ window.addEventListener('load', () => {
         el.html(html);
     });
 
+    router.add('/blog', () => {
+        let html = loadTemplate();
+        el.html(html);
+    });
+
     if(window.location.pathname.includes('about')) {
+        $('#majorNav').removeClass('navbar-dark');
+        $('#majorNav').addClass('navbar-light');
+    } else if (window.location.pathname.includes('blog')) {
         $('#majorNav').removeClass('navbar-dark');
         $('#majorNav').addClass('navbar-light');
     } else {
@@ -53,6 +75,9 @@ window.addEventListener('load', () => {
         const href = target.attr('href');
         const path = href.substr(href.lastIndexOf('/'));
         if(path.includes('about')) {
+            $('#majorNav').removeClass('navbar-dark');
+            $('#majorNav').addClass('navbar-light');
+        } else if (path.includes('blog')) {
             $('#majorNav').removeClass('navbar-dark');
             $('#majorNav').addClass('navbar-light');
         } else {
