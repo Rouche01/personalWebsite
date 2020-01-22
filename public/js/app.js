@@ -12,8 +12,7 @@ window.addEventListener('load', () => {
 
     // Instantiate api handler
     const api = axios.create({
-        baseURL: 'http://localhost:3000/api',
-        timeout: 7000,
+        baseURL: 'http://localhost:3000/api'
     });
 
     const showError = (error) => {
@@ -34,6 +33,18 @@ window.addEventListener('load', () => {
         }
     });
 
+    const createExcerpt = (string) => {
+        let stringArr = string.split(/(\s)/, 60);
+        let excerpt = stringArr.join('');
+        // stringArr.forEach((curr, index) => {
+        //     if (index < 2) {
+        //         excerpt = excerpt + " " + curr;
+        //     }
+        //     return excerpt;
+        // })
+        return excerpt;
+    }
+
     router.add('/', () => {
         let html = homeTemplate();
         el.html(html);
@@ -44,9 +55,22 @@ window.addEventListener('load', () => {
         el.html(html);
     });
 
-    router.add('/blog', () => {
+    router.add('/blog', async () => {
+        // Display loader
         let html = loadTemplate();
         el.html(html);
+        //try {
+            const response = await api.get('/blogposts');
+            const blogPosts = response.data.data.allBlogposts;
+            blogPosts.forEach((curr, index) => {
+               curr.excerpt = createExcerpt(curr.content);
+            });
+            console.log(createExcerpt(blogPosts[0].content));
+            html = blogTemplate({apiBlogPosts:blogPosts});
+            el.html(html);
+        // } catch(error) {
+        //    showError(error);
+        // }
     });
 
     if(window.location.pathname.includes('about')) {

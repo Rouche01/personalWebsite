@@ -196,19 +196,20 @@
         </section>
         <section id="blogPosts" class="py-5 mt-5">
             <div class="container">
-                <div class="d-flex py-3 px-5 align-items-center">
-                    <div class="blog-img p-2 d-none d-sm-block">
-                        <a href="#">
-                            <img src="https://source.unsplash.com/random/225x150" alt="" class="img-fluid">
-                        </a>
+                {{#each apiBlogPosts}}
+                    <div class="d-flex py-3 px-5 align-items-center">
+                        <div class="blog-img p-2 d-none d-sm-block">
+                            <a href="#">
+                                <img src="{{featuredImage.url}}" height="225" width="338" alt="{{featuredImage.alt}}" class="img-fluid">
+                            </a>
+                        </div>
+                        <div class="blog-content p-2">
+                            <h3 class="blog-title"><a href="">{{title}}</a></h3>
+                            <p class="d-inline blog-excerpt">{{excerpt}}</p>
+                            <a href="#" class="d-inline blog-link"> Read More <i class="fa fa-angle-double-right"></i></a>
+                        </div>
                     </div>
-                    <div class="blog-content p-2">
-                        <h3 class="blog-title"><a href="">Test Running An Headless CMS</a></h3>
-                        <p class="d-inline blog-excerpt">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe ducimus eius nam mollitia at beatae quas sit quo autem ut eaque tenetur porro, eligendi molestias.</p>
-                        <a href="#" class="d-inline blog-link"> Read More <i class="fa fa-angle-double-right"></i></a>
-                    </div>
-                </div>
-                
+                {{/each}}
             </div>
         </section>
     </script>
@@ -233,5 +234,16 @@
 <script src="js/app.js"></script>
 <script>
     $('#year').text(new Date().getFullYear());
+
+    const createExcerpt = (string) => {
+        const stringArr = string.split(' ');
+        let excerpt = '';
+        stringArr.forEach((curr, index) => {
+            if (index < 30) {
+                excerpt = excerpt + " " + curr;
+            }
+        })
+        return excerpt;
+    }
 </script>
 </html>
