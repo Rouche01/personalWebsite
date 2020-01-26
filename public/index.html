@@ -195,21 +195,47 @@
             </div>
         </section>
         <section id="blogPosts" class="py-5 mt-5">
-            <div class="container">
+            <div class="container" id="blog-container">
                 {{#each apiBlogPosts}}
                     <div class="d-flex py-3 px-5 align-items-center">
                         <div class="blog-img p-2 d-none d-sm-block">
-                            <a href="#">
+                            <a href="/{{slug}}" id="{{id}}">
                                 <img src="{{featuredImage.url}}" height="225" width="338" alt="{{featuredImage.alt}}" class="img-fluid">
                             </a>
                         </div>
                         <div class="blog-content p-2">
-                            <h3 class="blog-title"><a href="">{{title}}</a></h3>
+                            <h3 class="blog-title"><a href="/{{slug}}" id="{{id}}">{{title}}</a></h3>
                             <p class="d-inline blog-excerpt">{{excerpt}}</p>
-                            <a href="#" class="d-inline blog-link"> Read More <i class="fa fa-angle-double-right"></i></a>
+                            <a href="/{{slug}}" class="d-inline blog-link" id="{{id}}"> Read More <i class="fa fa-angle-double-right"></i></a>
                         </div>
                     </div>
                 {{/each}}
+            </div>
+        </section>
+    </script>
+
+    <script id="article-template" type="text/x-handlebars-template">
+        <section id="article-body" class="pt-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 mx-auto">
+                        <div class="py-3">
+                            <h1>{{title}}</h1>
+                            <img src="{{featuredImage.url}}" alt="{{featuredImage.alt}}" class="img-fluid py-4">
+                            <div id="article-content">{{content}}</div>
+                        </div>
+                        <hr>
+                        <div class="d-flex align-items-center py-3">
+                            <div class="mr-4">
+                                <img src="./img/small-me.jpg" alt="" class="rounded-circle" height="100" width="100">
+                            </div>
+                            <div class="align-self-center">
+                                <h5>Richard Emate</h5>
+                                <p class="blog-about">Richard Emate is the bestselling author of books on business, entrepreneurship, skill acquisition, productivity, creativity, applied psychology, and practical wisdom.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </script>
@@ -234,16 +260,6 @@
 <script src="js/app.js"></script>
 <script>
     $('#year').text(new Date().getFullYear());
-
-    const createExcerpt = (string) => {
-        const stringArr = string.split(' ');
-        let excerpt = '';
-        stringArr.forEach((curr, index) => {
-            if (index < 30) {
-                excerpt = excerpt + " " + curr;
-            }
-        })
-        return excerpt;
-    }
+    
 </script>
 </html>

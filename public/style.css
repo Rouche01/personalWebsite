@@ -50,7 +50,7 @@ hr {
     opacity: 0.3;
 }
 
-.intro hr, #email-sign-up-about hr, #footer-about-me hr, hr.blog-divider {
+.intro hr, #email-sign-up-about hr, #footer-about-me hr, hr.blog-divider, #article-body hr {
     background-color: #000;
     opacity: 0.3;
 }
@@ -59,8 +59,12 @@ hr {
     margin-top: -10px;
 }
 
-.intro p, .work-philosophy p, .personal-quirks p {
+.intro p, .work-philosophy p, .personal-quirks p, #article-body p {
     font-size: 18px;
+}
+
+.blog-about {
+    font-size: 15px !important;
 }
 
 #blogHero input {
@@ -80,7 +84,7 @@ hr {
     color: #d3a006;
 }
 
-.blog-content p {
+.blog-content p, #article-content {
     word-break: break-all;
     white-space: normal;
 }

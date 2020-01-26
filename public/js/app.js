@@ -1,11 +1,13 @@
 window.addEventListener('load', () => {
     const el = $('#app');
+    let blogSlug;
 
     //compile Handlebar Templates 
     const homeTemplate = Handlebars.compile($('#home-template').html());
     const aboutTemplate = Handlebars.compile($('#about-template').html());
     const blogTemplate = Handlebars.compile($('#blog-template').html());
     const loadTemplate = Handlebars.compile($('#load-template').html());
+    const articleTemplate = Handlebars.compile($('#article-template').html());
 
     //const html = aboutTemplate();
     //el.html(html);
@@ -55,11 +57,18 @@ window.addEventListener('load', () => {
         el.html(html);
     });
 
+    el.on('click', '#blog-container', (event) => {
+        //event.preventDefault();
+        blogSlug = event.target.closest('a').getAttribute('href');
+        //console.log(blogSlug);
+        
+    });
+
     router.add('/blog', async () => {
         // Display loader
         let html = loadTemplate();
         el.html(html);
-        //try {
+        try {
             const response = await api.get('/blogposts');
             const blogPosts = response.data.data.allBlogposts;
             blogPosts.forEach((curr, index) => {
@@ -68,15 +77,32 @@ window.addEventListener('load', () => {
             console.log(createExcerpt(blogPosts[0].content));
             html = blogTemplate({apiBlogPosts:blogPosts});
             el.html(html);
-        // } catch(error) {
-        //    showError(error);
-        // }
+        } catch(error) {
+           showError(error);
+        }
+    });
+
+    router.add('{blogSlug}', async (blogSlug) => {
+        const response = await api.get('/blogposts');
+        const blogPosts = response.data.data.allBlogposts;
+        console.log(blogPosts);
+        const index = blogPosts.findIndex(blogPost => blogPost.slug === blogSlug );
+        const clickedEl = blogPosts[index];
+        const {id, content, featuredImage, title} = clickedEl;
+        // const trial = blogSlug;
+        // console.log(trial);
+        console.log(clickedEl);
+        let html = articleTemplate({id, content, featuredImage, title});
+        el.html(html);
     });
 
     if(window.location.pathname.includes('about')) {
         $('#majorNav').removeClass('navbar-dark');
         $('#majorNav').addClass('navbar-light');
     } else if (window.location.pathname.includes('blog')) {
+        $('#majorNav').removeClass('navbar-dark');
+        $('#majorNav').addClass('navbar-light');
+    } else if (window.location.pathname.includes('article')) {
         $('#majorNav').removeClass('navbar-dark');
         $('#majorNav').addClass('navbar-light');
     } else {
@@ -104,12 +130,19 @@ window.addEventListener('load', () => {
         } else if (path.includes('blog')) {
             $('#majorNav').removeClass('navbar-dark');
             $('#majorNav').addClass('navbar-light');
+        } else if (path.includes('article')) {
+            $('#majorNav').removeClass('navbar-dark');
+            $('#majorNav').addClass('navbar-light');
         } else {
             $('#majorNav').removeClass('navbar-light');
             $('#majorNav').addClass('navbar-dark');
         }
         router.navigateTo(path);
     });
-    
 
+    // el.on('click', '#blog-container', (event) => {
+    //     event.preventDefault();
+    //     console.log(event.target.closest('a').getAttribute('href'));
+    // });
 });
+
