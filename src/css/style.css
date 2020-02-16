@@ -200,4 +200,9 @@ hr {
           height: 75vh;
           background-position: right -250px bottom 0px;
       }
+
+      #aboutMe {
+          height: 70vh;
+          background-position: right -100px bottom 0px;
+      }
 }
