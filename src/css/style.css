@@ -197,7 +197,7 @@ hr {
   and (-webkit-min-device-pixel-ratio: 2)
   and (orientation: portrait) {
       #hero {
-          height: 60vh;
+          height: 75vh;
           background-position: right -250px bottom 0px;
       }
 }
