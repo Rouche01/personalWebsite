@@ -36,7 +36,7 @@ window.addEventListener('load', () => {
 
     // Instantiate api handler
     const api = axios.create({
-        baseURL: 'http://localhost:3000/api',
+        baseURL: 'https://romantic-tesla-d9f522.netlify.com/api',
         // timeout: 500,
     });
 
