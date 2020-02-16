@@ -1,0 +1,14 @@
+{{#each blogPosts}}
+    <div class="d-flex py-3 px-5 align-items-center">
+        <div class="blog-img p-2 d-none d-sm-block">
+            <a href="/{{slug}}" id="{{id}}">
+                <img src="{{featuredImage.url}}" height="225" width="338" alt="{{featuredImage.alt}}" class="img-fluid">
+            </a>
+        </div>
+        <div class="blog-content p-2">
+            <h3 class="blog-title"><a href="/{{slug}}" id="{{id}}">{{title}}</a></h3>
+            <p class="d-inline blog-excerpt">{{excerpt}}</p>
+            <a href="/{{slug}}" class="d-inline blog-link" id="{{id}}"> Read More <i class="fa fa-angle-double-right"></i></a>
+        </div>
+    </div>
+{{/each}}
