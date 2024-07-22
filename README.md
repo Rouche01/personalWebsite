@@ -1,2 +1,2 @@
-# personalWebsite
-Building my own website with HTML, CSS and Javascript as a Single Page Application
+# Personal Website
+A single-page application for my personal website using Handlebars, Webpack, and Vanilla-Routers, focusing on client-side rendering, modular code organization, and efficient routing from scratch.

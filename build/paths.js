@@ -1,7 +1,7 @@
-const path = require('path');
+const path = require("path");
 
 module.exports = {
-    SRC: path.resolve(__dirname, '..', 'src'),
-    DIST: path.resolve(__dirname, '..', 'dist'),
-    ASSETS: '/dist'
-}
+  SRC: path.resolve(__dirname, "..", "src"),
+  DIST: path.resolve(__dirname, "..", "dist"),
+  ASSETS: "/dist",
+};

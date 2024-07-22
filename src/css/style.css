@@ -54,7 +54,12 @@ hr {
     opacity: 0.3;
 }
 
-.intro hr, #email-sign-up-about hr, #footer-about-me hr, hr.blog-divider, #article-body hr, .nowDivider hr {
+.intro hr,
+#email-sign-up-about hr,
+#footer-about-me hr,
+hr.blog-divider,
+#article-body hr,
+.nowDivider hr {
     background-color: #000;
     opacity: 0.3;
 }
@@ -63,7 +68,14 @@ hr {
     margin-top: -10px;
 }
 
-.intro p, .work-philosophy p, .personal-quirks p, #article-body p, #resource-body, #disqus-loader, #mainNow p, #mainNow li {
+.intro p,
+.work-philosophy p,
+.personal-quirks p,
+#article-body p,
+#resource-body,
+#disqus-loader,
+#mainNow p,
+#mainNow li {
     font-size: 18px;
 }
 
@@ -93,7 +105,8 @@ hr {
     color: #d3a006;
 }
 
-.blog-content p, #article-content {
+.blog-content p,
+#article-content {
     word-break: break-all;
     white-space: normal;
 }
@@ -162,47 +175,53 @@ hr {
 }
 
 @keyframes spin {
-    0%,100% {
+
+    0%,
+    100% {
         transform: translate(0);
     }
+
     25% {
         transform: translate(160%);
     }
+
     50% {
         transform: translate(160%, 160%);
     }
+
     75% {
         transform: translate(0, 160%);
     }
 }
 
 @-webkit-keyframes spin {
-    0%,100% {
+
+    0%,
+    100% {
         transform: translate(0);
     }
+
     25% {
         transform: translate(160%);
     }
+
     50% {
         transform: translate(160%, 160%);
     }
+
     75% {
         transform: translate(0, 160%);
     }
 }
 
-@media only screen 
-  and (min-device-width: 320px) 
-  and (max-device-width: 480px)
-  and (-webkit-min-device-pixel-ratio: 2)
-  and (orientation: portrait) {
-      #hero {
-          height: 75vh;
-          background-position: right -250px bottom 0px;
-      }
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+    #hero {
+        height: 75vh;
+        background-position: right -250px bottom 0px;
+    }
 
-      #aboutMe {
-          height: 70vh;
-          background-position: right -100px bottom 0px;
-      }
+    #aboutMe {
+        height: 70vh;
+        background-position: right -100px bottom 0px;
+    }
 }

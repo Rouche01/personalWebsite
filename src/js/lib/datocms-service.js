@@ -1,25 +1,25 @@
-require('dotenv').config();
-const axios = require('axios');
+require("dotenv").config();
+const axios = require("axios");
 
 const apiKey = process.env.API_KEY;
 // const timeout = process.env.TIMEOUT || 10000;
 
 const axiosInstance = axios.create({
-    url:  `https://graphql.datocms.com/`,
-    headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-        'Authorization': `Bearer ${apiKey}`
-    },
-    timeout: 8000,
-})
+  url: `https://graphql.datocms.com/`,
+  headers: {
+    "Content-Type": "application/json",
+    Accept: "application/json",
+    Authorization: `Bearer ${apiKey}`,
+  },
+  timeout: 8000,
+});
 
 const allBlogPosts = async () => {
-    try {
-        const response = await axiosInstance({
-        method: 'post',
-        data: {
-            query: `
+  try {
+    const response = await axiosInstance({
+      method: "post",
+      data: {
+        query: `
                 query MyQuery {
                     allBlogposts {
                     id
@@ -33,21 +33,21 @@ const allBlogPosts = async () => {
                     _publishedAt
                     }
                 }
-            `
-        },
-        }); 
-        return response.data;
-    } catch (error) {
-        return new Error(data.error.type);
-    }
+            `,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    return new Error(data.error.type);
+  }
 };
 
 const allResources = async () => {
-    try {
-        const response = await axiosInstance({
-            method: 'post',
-            data: {
-                query: `
+  try {
+    const response = await axiosInstance({
+      method: "post",
+      data: {
+        query: `
                     query MyQuery {
                         allResources {
                             id
@@ -70,16 +70,16 @@ const allResources = async () => {
                             }
                           }
                     }
-                `
-            }
-        });
-        return response.data;
-    } catch (error) {
-        return new Error(data.error.type);
-    }
+                `,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    return new Error(data.error.type);
+  }
 };
 
 module.exports = {
-    allPosts: async () => await allBlogPosts(),
-    allResources: async () => await allResources(),
+  allPosts: async () => await allBlogPosts(),
+  allResources: async () => await allResources(),
 };
